@@ -4,7 +4,11 @@
 
 <pre>
 +-[ Colaboradores ]--------------------------------------------
-|  @blackpedrohenrique84-maker
+|  <a href="https://github.com/blackpedrohenrique84-maker/blackpedrohenrique84-maker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=blackpedrohenrique84-maker/blackpedrohenrique84-maker" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 |  @gabriel1313fagundes-arch
 |  @daviissilva93
 |
