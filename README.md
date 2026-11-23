@@ -2,20 +2,17 @@
 
 <pre>
 +-[ Como Funciona ]--------------------------------------
-| Funciona com uma IA integrada usando uma API no codigo 
-| utilizo o metodo RAG para fazera  ia mesclar dados e responder 
-| ainda em fase de desenvolvimentos com muitos bugs 
-|
-| atual atualizaçao: adicionei uma api de aferiçao climatica (OPEN-METEO)
-|
+| Utiliza-se de uma Inteligência Artificial integrada a uma API em Python para auxiliar agricultores no manejo e controle de |danos e pragas nas frutas.
+|O sistema baseado em RAG (Retrieval-Augmented Generation) que conecta banco de dados ao código para gerar a resposta.
+|Utilizamos de 2 APIs no sistema do código, o (GROQ) e (OPEN-METEO) para conectarmos a uma IA modelo Llama 3.1 8B e o OPEN-|METEO para conectarmos a dados climáticos da região solicitada.
 +-----------------------------------------------------------
 
-+-[ Colaboradores ]--------------------------------------
-| Funciona com uma IA integrada usando uma API no codigo 
-| utilizo o metodo RAG para fazera  ia mesclar dados e responder 
-| ainda em fase de desenvolvimentos com muitos bugs 
++-[ Plataformas ]--------------------------------------
+| Visual Studio Code 
+| Vercell App
+| 
 |
-| atual atualizaçao: adicionei uma api de aferiçao climatica (OPEN-METEO)
+| 
 |
 +-----------------------------------------------------------
 
