@@ -30,7 +30,7 @@
 |  @blackpedrohenrique84maker
 |  @gabriel1313fagundes-arch
 |  @daviissilva93
-|
+|  @victoriacomercial03-lab
 +-----------------------------------------------------------
 
 </pre>
@@ -48,5 +48,11 @@
 <a href="https://github.com/gabriel1313fagundes-arch/projeto-final-/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=gabriel1313fagundes-arch/projeto-final-" />
 </a>
+
+
+<a href="https://github.com/victoriacomercial03-lab/AtividadeUc1/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=victoriacomercial03-lab/AtividadeUc1" />
+</a>
+
 
 
