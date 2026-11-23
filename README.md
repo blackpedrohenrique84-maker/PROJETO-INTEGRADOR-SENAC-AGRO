@@ -1,6 +1,6 @@
 #Projeto Integrador - Etemar Agro
 
-```bash
+<pre>
 +-[ Colaboradores ]--------------------------------------
 | Funciona com uma IA integrada usando uma API no codigo 
 | utilizo o metodo RAG para fazera  ia mesclar dados e responder 
@@ -19,9 +19,9 @@
 |
 +-----------------------------------------------------------
 
+<pre>
 
 
-```
 
 
 
@@ -37,7 +37,7 @@
 <pre>
 
   
-  ```bash
+  
 <a href="https://github.com/blackpedrohenrique84-maker/blackpedrohenrique84-maker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=blackpedrohenrique84-maker/blackpedrohenrique84-maker" />
 </a>
@@ -50,4 +50,4 @@
   <img src="https://contrib.rocks/image?repo=gabriel1313fagundes-arch/projeto-final-" />
 </a>
 
-```
+
