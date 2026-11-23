@@ -1,7 +1,7 @@
 #Projeto Integrador - Etemar Agro
 
 <pre>
-+-[ Colaboradores ]--------------------------------------
++-[ Como Funciona ]--------------------------------------
 | Funciona com uma IA integrada usando uma API no codigo 
 | utilizo o metodo RAG para fazera  ia mesclar dados e responder 
 | ainda em fase de desenvolvimentos com muitos bugs 
