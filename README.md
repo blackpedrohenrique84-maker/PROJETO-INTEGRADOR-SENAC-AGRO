@@ -1,7 +1,6 @@
 #Projeto Integrador - Etemar Agro
 
 
-```bash
 
 <pre>
 +-[ Colaboradores ]--------------------------------------------
@@ -11,7 +10,7 @@
 |
 +-----------------------------------------------------------
 </pre>
-
+```bash
 +-[ Colaboradores ]--------------------------------------
 | Funciona com uma IA integrada usando uma API no codigo 
 | utilizo o metodo RAG para fazera  ia mesclar dados e responder 
