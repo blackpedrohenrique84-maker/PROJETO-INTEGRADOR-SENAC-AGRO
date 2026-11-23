@@ -6,6 +6,7 @@
 |O sistema baseado em RAG (Retrieval-Augmented Generation) que conecta banco de dados ao código para gerar a resposta.
 |Utilizamos de 2 APIs no sistema do código, o (GROQ) e (OPEN-METEO) para conectarmos a uma IA modelo Llama 3.1 8B e o OPEN-|METEO para conectarmos a dados climáticos da região solicitada.
 +-----------------------------------------------------------
+</pre>
 
 +-[ Plataformas ]--------------------------------------
 | Visual Studio Code 
