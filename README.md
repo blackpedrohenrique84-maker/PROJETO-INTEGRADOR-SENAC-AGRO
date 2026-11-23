@@ -34,6 +34,7 @@
 |  @gabriel1313fagundes-arch
 |  @daviissilva93
 |  @victoriacomercial03-lab
+  @Sah3ll
 +-----------------------------------------------------------
 
 </pre>
@@ -55,6 +56,10 @@
 
 <a href="https://github.com/victoriacomercial03-lab/AtividadeUc1/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=victoriacomercial03-lab/AtividadeUc1" />
+</a>
+
+<a href="https://github.com/Sah3ll/Atividade-sqlite/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Sah3ll/Atividade-sqlite" />
 </a>
 
 
