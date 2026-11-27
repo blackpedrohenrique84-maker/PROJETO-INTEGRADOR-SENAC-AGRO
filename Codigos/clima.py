@@ -1,17 +1,19 @@
-from __future__ import annotations
+from __future__ import annotations # Permite utilizar anotações de tipos de forma adiada.
 
-import asyncio
-import json
-import math
-from datetime import date, timedelta
-from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Tuple
+import asyncio # Importa recursos para programação assíncrona.
+import json # Importa funções para trabalhar com arquivos e dados JSON.
+import math # Importa funções matemáticas.
+from datetime import date, timedelta # Importa date para datas e timedelta para intervalos de tempo.
+from pathlib import Path  # Importa Path para manipular caminhos de arquivos e diretórios.
+from typing import Any, Dict, Iterable, List, Optional, Tuple  # Importa tipos para documentação e verificação de tipos.
 
-import httpx
+import httpx # Importa a biblioteca HTTPX para realizar requisições HTTP a APIs e sites.
 
-NORMAL_INI = 1
-CACHE_DIR = Path(__file__).resolve().parent / ".cache_clima"
-CACHE_DIR.mkdir(exist_ok=True, parents=True)
+NORMAL_INI = 1 # Define uma constante chamada NORMAL_INI com o valor inicial 1
+CACHE_DIR = Path(__file__).resolve().parent / ".cache_clima" # Define o caminho da pasta ".cache_clima", localizada no mesmo diretório deste arquivo Python.
+CACHE_DIR.mkdir(exist_ok=True, parents=True) # Cria a pasta ".cache_clima".
+# parents=True permite criar diretórios intermediários, caso necessário.
+# exist_ok=True evita erros se a pasta já existir.
 
 
 async def _get_json(client: Optional[httpx.AsyncClient], url: str, params: Dict[str, Any], tentativas: int = 3, timeout: float = 25.0):
