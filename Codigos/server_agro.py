@@ -1,13 +1,13 @@
-﻿import os
-import json
-import logging
-from pathlib import Path
+﻿import os #Importa o módulo padrão "os" para acessar variáveis ​​de ambiente e recursos do sistema operacional.
+import json #Importar o módulo "json" para ler e gerar dados estruturados no formato JSON.
+import logging #Importar o módulo "logging" para registrar mensagens e avisos de execução da aplicação.
+from pathlib import Path #Importar uma classe "Path" para manipular caminhos de arquivos e pastas de forma limpa e compatível entre sistemas operacionais.
 try:
-    from fastapi import FastAPI, HTTPException, Response
-    from fastapi.responses import FileResponse
-    from fastapi.middleware.cors import CORSMiddleware
-    from fastapi.staticfiles import StaticFiles
-except Exception:
+    from fastapi import FastAPI, HTTPException, Response #Importa FastAPI(classe principal da aplicação web), HTTPException(para retornar erros HTTP estruturados, como 400 ou 500) e Response(para respostas HTTP customizadas, como status 204).
+    from fastapi.responses import FileResponse #Importe o middleware de CORS para liberar chamadas entre origens/portas diferentes (por exemplo, frontend rodando em outra porta acessando a API).
+    from fastapi.middleware.cors import CORSMiddleware #Importe o middleware de "CORS" para liberar chamadas entre origens/portas diferentes (por exemplo, frontend rodando em outra porta acessando a API).
+    from fastapi.staticfiles import StaticFiles #Importar "StaticFilespara" publicar uma pasta de arquivos estáticos (CSS, JS, imagens) em uma rotação da aplicação.
+except Exception: #Captura qualquer exceção caso o pacote fastapi(ou alguns deles) não esteja disponível no ambiente Python atual.
     # Fallback stubs so linters/IDEs won't error when fastapi isn't installed.
     class FastAPI:
         def __init__(self, *args, **kwargs):
