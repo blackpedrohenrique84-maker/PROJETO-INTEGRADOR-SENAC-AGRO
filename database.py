@@ -1,3 +1,8 @@
+# VERSAO ANTIGA ( DO OUTRO PROJETO - CASO QUEIRAM OLHAR PARA TESTE)
+
+
+
+
 from sqlalchemy import create_engine, Column, Integer, String, Text, Boolean, DateTime
 from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
