@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS valores (
     tipo  TEXT NOT NULL 
 ) 
 
-""") # esse código prepara o banco de dados para armazenar informações financeiras, organizando-as em uma tabela com quatro colunas.
+""") #esse código prepara o banco de dados para armazenar informações financeiras, organizando-as em uma tabela com quatro colunas.
 
 
 cursor.executemany( # é um método utilizado para inserir vários registros de uma só vez no banco de dados, executando o mesmo comando SQL para cada conjunto de informações.
@@ -30,4 +30,4 @@ cursor.executemany( # é um método utilizado para inserir vários registros de 
 
 
 banco.commit() #salva os dados inseridos, atualizados ou excluídos no banco de dados, garantindo que as alterações sejam registradas.
-banco.close() # fecha o banco de dados após terminar as operações, liberando os recursos utilizados pelo programa.
+banco.close() #fecha o banco de dados após terminar as operações, liberando os recursos utilizados pelo programa.
