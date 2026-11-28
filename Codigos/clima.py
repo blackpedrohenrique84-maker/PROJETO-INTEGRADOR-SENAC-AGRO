@@ -16,47 +16,69 @@ CACHE_DIR.mkdir(exist_ok=True, parents=True) # Cria a pasta ".cache_clima".
 # exist_ok=True evita erros se a pasta já existir.
 
 
-async def _get_json(client: Optional[httpx.AsyncClient], url: str, params: Dict[str, Any], tentativas: int = 3, timeout: float = 25.0):
-    """Busca JSON de APIs públicas, com fallback simples e sem dependência de cache."""
-    last_error = None
-    headers = {"User-Agent": "ETEMAR/1.0"}
-    for _ in range(max(1, tentativas)):
-        try:
-            if client is None:
-                async with httpx.AsyncClient(headers=headers, timeout=timeout) as c:
-                    r = await c.get(url, params=params)
-                    r.raise_for_status()
-                    return r.json()
-            r = await client.get(url, params=params)
-            r.raise_for_status()
-            return r.json()
+async def _get_json(client: Optional[httpx.AsyncClient], url: str, params: Dict[str, Any], tentativas: int = 3, timeout: float = 25.0): # Recebe um cliente HTTP assíncrono ou None. # (url:str)Endereço da API que será consultada. # params: Dict[str, Any], Parâmetros enviados na requisição. #(tentativas: int = 3,)  # Define o número máximo de tentativas (padrão: 3). #(timeout: float = 25.0) # Define o tempo máximo de espera (25 segundos).
+    last_error = None  # Inicializa uma variável para armazenar o último erro ocorrido.
+    headers = {"User-Agent": "ETEMAR/1.0"} # Define o cabeçalho que identifica a aplicação nas requisições HTTP.
+    for _ in range(max(1, tentativas)): # Executa o processo pelo menos uma vez, respeitando o número de tentativas.
+        try: # Inicia um bloco para tentar realizar a requisição.
+
+            if client is None: # Verifica se nenhum cliente HTTP foi fornecido.
+                async with httpx.AsyncClient(headers=headers, timeout=timeout) as c: # Cria um novo cliente HTTP assíncrono com cabeçalhos e tempo limite definidos.
+                    r = await c.get(url, params=params: # Faz uma requisição GET à API, enviando os parâmetros.
+                    r.raise_for_status() # Verifica se a resposta HTTP contém algum erro.
+                    return r.json() # Converte a resposta recebida para JSON e retorna os dados.
+            r = await client.get(url, params=params) # Utiliza o cliente recebido para consultar a API.
+            r.raise_for_status() # Verifica se a resposta HTTP foi bem-sucedida.
+            return r.json() # Converte a resposta da API para JSON e retorna os dados.
         except Exception as exc:  # pragma: no cover - defensivo
-            last_error = exc
-            await asyncio.sleep(0.1)
-    if last_error is not None:
-        raise last_error
-    return {}
+            last_error = exc  # Armazena o último erro ocorrido.
+
+            await asyncio.sleep(0.1)  # Aguarda 0,1 segundo antes de realizar uma nova tentativa.
+    if last_error is not None: # Verifica se algum erro foi registrado durante as tentativas.
+        raise last_error # Lança novamente o último erro ocorrido.
+    return {} # Retorna um dicionário vazio caso nenhuma resposta ou erro tenha sido registrado.
 
 
-def hoje_br() -> date:
-    return date.today()
+def hoje_br() -> date: # Define uma função chamada hoje_br que retorna uma data no formato date.
+    return date.today()  # Retorna a data atual do computador onde o programa está sendo executado.
 
 
 def _ultimo_dia_mes(ano: int, mes: int) -> int:
-    if mes == 12:
-        return 31
+     # Define uma função que recebe o ano e o mês e retorna o último dia desse mês.
+    # ano: representa o ano (exemplo: 2026).
+    # mes: representa o mês (exemplo: 2 para fevereiro).
+    # -> int indica que a função retorna um número inteiro.
+
+    if mes == 12:  # Verifica se o mês informado é dezembro (mês 12).
+        return 31  # Se for dezembro, retorna 31, pois dezembro sempre tem 31 dias.
     prox = date(ano + (mes // 12), ((mes % 12) + 1), 1)
+    # Cria uma data correspondente ao primeiro dia do mês seguinte.
+    # mes // 12 verifica se é necessário avançar um ano.
+    # mes % 12 calcula o restante da divisão por 12.
+    # + 1 determina o próximo mês.
+    # O último argumento (1) representa o primeiro dia do mês.
     return (prox - timedelta(days=1)).day
+    # Subtrai um dia do primeiro dia do próximo mês.
+    # Assim, obtém o último dia do mês desejado.
+    # .day extrai somente o número do dia.
 
 
-def resolver_periodo(ex: Dict[str, Any], hoje: Optional[date] = None) -> Tuple[Optional[date], Optional[date], Optional[str]]:
-    hoje = hoje or hoje_br()
+def resolver_periodo(ex: Dict[str, Any], hoje: Optional[date] = None) -> Tuple[Optional[date], Optional[date], Optional[str]]: # Recebe um dicionário com informações sobre o período solicitado.
+    hoje = hoje or hoje_br() 
+    # Se a data de referência não for informada, utiliza a data atual.
+    # A função hoje_br() retorna a data atual do computador.
     mes = ex.get("mes")
-    if mes is not None:
+     # Busca no dicionário o valor correspondente à chave "mes".
+    # Se a chave não existir, retorna None.
+
+    if mes is not None:  # Verifica se foi informado um mês.
         ano = int(ex.get("ano") or hoje.year)
-        if mes > hoje.month:
-            ano -= 1
-        ini = date(ano, int(mes), 1)
+        # Obtém o ano informado no dicionário.
+        # Se o ano não existir ou estiver vazio, utiliza o ano atual.
+        # int() converte o valor para número inteiro.
+        if mes > hoje.month: # Verifica se o mês informado é maior que o mês atual.
+            ano -= 1  # Se for maior, considera que o mês pertence ao ano anterior.
+        ini = date(ano, int(mes), 1) 
         fim = date(ano, int(mes), _ultimo_dia_mes(ano, int(mes)))
         return ini, fim, f"Período: {ini.isoformat()} a {fim.isoformat()}"
 
